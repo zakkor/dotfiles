@@ -5,11 +5,10 @@ height = 30
 
 modules-center = date
 modules-left = bspwm
-modules-right = memory pulseaudio
+modules-right = memory pulseaudio backlight battery 
 
 separator = |
-module-margin = 1
-
+module-margin = 2
 padding-right = 3
 
 [module/date]
@@ -66,118 +65,51 @@ reverse-scroll = false
 ; Default: false
 fuzzy-match = true
 
-
-;;;; Volume ;;;;
 [module/pulseaudio]
 type = internal/pulseaudio
-
-; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
-; If not, uses default sink
-; sink = alsa_output.pci-0000_12_00.3.analog-stereo
 sink = alsa_output.pci-0000_00_14.2.analog-stereo
-
-; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
-; Default: true
 use-ui-max = true
-
-; Interval for volume increase/decrease (in percent points)
-; Default: 5
 interval = 5
-
-; Available tags:
-;   <label-volume> (default)
-;   <ramp-volume>
-;   <bar-volume>
 format-volume = VOLUME <label-volume>
-
-; Available tags:
-;   <label-muted> (default)
-;   <ramp-volume>
-;   <bar-volume>
-;format-muted = <label-muted>
-
-; Available tokens:
-;   %percentage% (default)
-;   %decibels% (unreleased)
-;label-volume = %percentage%%
-
-; Available tokens:
-;   %percentage% (default)
-;   %decibels% (unreleased)
-label-muted = 🔇 muted
+label-muted = muted
 label-muted-foreground = #666
 
-; Right and Middle click (unreleased)
-click-right = pavucontrol &
-; click-middle = 
 
-;;;; Memory ;;;;
 [module/memory]
 type = internal/memory
-
-; Seconds to sleep between updates
-; Default: 1
 interval = 3
-
-; Available tags:
-;   <label> (default)
-;   <bar-used>
-;   <bar-free>
-;   <ramp-used>
-;   <ramp-free>
-;   <bar-swap-used>
-;   <bar-swap-free>
-;   <ramp-swap-used>
-;   <ramp-swap-free>
 format = <label>
+label = RAM %percentage_used%%
 
-; Available tokens:
-;   %percentage_used% (default)
-;   %percentage_free%
-;   %gb_used%
-;   %gb_free%
-;   %gb_total%
-;   %mb_used%
-;   %mb_free%
-;   %mb_total%
-;   %percentage_swap_used%
-;   %percentage_swap_free%
-;   %mb_swap_total%
-;   %mb_swap_free%
-;   %mb_swap_used%
-;   %gb_swap_total%
-;   %gb_swap_free%
-;   %gb_swap_used%
+[module/battery]
+type = internal/battery
+full-at = 99
+battery = BAT0
+adapter = AC
+poll-interval = 5
+format-charging = <label-charging>
+format-discharging = <label-discharging>
+label-charging = CHARGING %percentage%%
+label-discharging = DISCHARGING %percentage%%
+label-full = 
 
-label = RAM %gb_free%
+[module/backlight]
+type = internal/backlight
 
-; Only applies if <bar-used> is used
-bar-used-indicator =
-bar-used-width = 20
-bar-used-foreground-0 = #55aa55
-bar-used-foreground-1 = #557755
-bar-used-foreground-2 = #f5a70a
-bar-used-foreground-3 = #ff5555
-bar-used-fill = ▐
-bar-used-empty = ▐
-bar-used-empty-foreground = #444444
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = intel_backlight
 
-; Only applies if <ramp-used> is used
-ramp-used-0 = ▁
-ramp-used-1 = ▂
-ramp-used-2 = ▃
-ramp-used-3 = ▄
-ramp-used-4 = ▅
-ramp-used-5 = ▆
-ramp-used-6 = ▇
-ramp-used-7 = █
+; Enable changing the backlight with the scroll wheel
+; NOTE: This may require additional configuration on some systems. Polybar will
+; write to `/sys/class/backlight/${self.card}/brightness` which requires polybar
+; to have write access to that file.
+; DO NOT RUN POLYBAR AS ROOT. 
+; The recommended way is to add the user to the
+; `video` group and give that group write-privileges for the `brightness` file.
+; See the ArchWiki for more information:
+; https://wiki.archlinux.org/index.php/Backlight#ACPI
+; Default: false
+enable-scroll = false
 
-; Only applies if <ramp-free> is used
-ramp-free-0 = ▁
-ramp-free-1 = ▂
-ramp-free-2 = ▃
-ramp-free-3 = ▄
-ramp-free-4 = ▅
-ramp-free-5 = ▆
-ramp-free-6 = ▇
-ramp-free-7 = █
+label = BACKLIGHT %percentage%%
