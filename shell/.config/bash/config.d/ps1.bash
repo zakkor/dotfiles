@@ -1,1 +1,1 @@
-export PS1="\u@\h \W \\$ \[$(tput sgr0)\]"
+export PS1="\W \\$ \[$(tput sgr0)\]"
