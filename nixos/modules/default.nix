@@ -28,13 +28,7 @@
 
   sound.enable = true;
 
-  hardware = {
-    pulseaudio = {
-      enable = true;
-      support32Bit = true;
-    };
-    opengl.driSupport32Bit = true;
-  };
+  hardware.pulseaudio.enable = true;
 
   services.xserver = {
     enable = true;
@@ -58,12 +52,8 @@
     autocutsel
     scrot
     termite
-    xfce.thunar
-    steam
     qbittorrent
     screenfetch
-    nodejs
-    iptables
     arc-theme
     arc-icon-theme
     lxappearance-gtk3
