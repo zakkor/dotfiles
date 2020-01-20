@@ -64,6 +64,7 @@
     go-protobuf
     shotwell
     signal-desktop
+    emacs
   ];
 
   fonts.fonts = with pkgs; [
