@@ -1,38 +1,38 @@
 [bar/default]
-wm-restack = bspwm
-font-0 = Ttyp0-Regular:size=12; 2
-height = 30
+wm-restack		= bspwm
+font-0			= Ttyp0-Regular:size=12; 2
+height			= 30
 
-modules-center = date
-modules-left = bspwm
-modules-right = memory pulseaudio backlight battery 
+modules-center		= date
+modules-left		= bspwm
+modules-right		= pulseaudio backlight battery 
 
-separator = |
-module-margin = 2
-padding-right = 3
+separator		= |
+module-margin		= 2
+padding-right		= 3
 
 [module/date]
-type = internal/date
-date = %Y/%m/%d %I:%M %p
+type			= internal/date
+date			= %Y/%m/%d %I:%M %p
 
 [module/bspwm]
-type = internal/bspwm
+type			= internal/bspwm
 
-label-focused = %name%
-label-focused-padding = 2
+label-focused		= %name%
+label-focused-padding	= 2
 label-focused-background = %ffffff
 label-focused-foreground = %000000
 
-label-empty = %name%
-label-empty-padding = 2
-label-empty-background = %111111
-label-empty-foreground = %888888
+label-empty		= %name%
+label-empty-padding	= 2
+label-empty-background	= %111111
+label-empty-foreground	= %888888
 
-label-urgent = %name%
-label-urgent-padding = 2
+label-urgent		= %name%
+label-urgent-padding	= 2
 
-label-occupied = %name%
-label-occupied-padding = 2
+label-occupied		= %name%
+label-occupied-padding	= 2
 
 
 ; Only show workspaces defined on the same output as the bar
@@ -40,65 +40,59 @@ label-occupied-padding = 2
 ; But if you rename your bspwm monitors with bspc -n this option will no longer
 ; behave correctly.
 ; Default: true
-pin-workspaces = true
+pin-workspaces		= true
 
 ; Output mode flags after focused state label
 ; Default: false
-inline-mode = true
+inline-mode		= true
 
 ; Create click handler used to focus workspace
 ; Default: true
-enable-click = true
+enable-click		= true
 
 ; Create scroll handlers used to cycle workspaces
 ; Default: true
-enable-scroll = true
+enable-scroll		= true
 
 ; Set the scroll cycle direction 
 ; Default: true
-reverse-scroll = false
+reverse-scroll		= false
 
 ; Use fuzzy (partial) matching on labels when assigning 
 ; icons to workspaces
 ; Example: code;♚ will apply the icon to all workspaces 
 ; containing 'code' in the label
 ; Default: false
-fuzzy-match = true
+fuzzy-match		= true
 
 [module/pulseaudio]
-type = internal/pulseaudio
-sink = alsa_output.pci-0000_00_14.2.analog-stereo
-use-ui-max = true
-interval = 5
-format-volume = VOLUME <label-volume>
-label-muted = muted
-label-muted-foreground = #666
+type			= internal/pulseaudio
+sink			= alsa_output.pci-0000_00_14.2.analog-stereo
+use-ui-max		= true
+interval		= 5
+format-volume		= VOLUME <label-volume>
+label-muted		= muted
+label-muted-foreground	= #666
 
-
-[module/memory]
-type = internal/memory
-interval = 3
-format = <label>
-label = RAM %percentage_used%%
 
 [module/battery]
-type = internal/battery
-full-at = 99
-battery = BAT0
-adapter = AC
-poll-interval = 5
-format-charging = <label-charging>
-format-discharging = <label-discharging>
-label-charging = CHARGING %percentage%%
-label-discharging = DISCHARGING %percentage%%
-label-full = 
+type			= internal/battery
+full-at			= 99
+battery			= BAT0
+adapter			= AC
+poll-interval		= 5
+format-charging		= <label-charging>
+format-discharging	= <label-discharging>
+label-charging		= CHARGING %percentage%%
+label-discharging	= DISCHARGING %percentage%%
+label-full		=
 
 [module/backlight]
-type = internal/backlight
+type			= internal/backlight
 
 ; Use the following command to list available cards:
 ; $ ls -1 /sys/class/backlight/
-card = intel_backlight
+card			= intel_backlight
 
 ; Enable changing the backlight with the scroll wheel
 ; NOTE: This may require additional configuration on some systems. Polybar will
@@ -110,6 +104,6 @@ card = intel_backlight
 ; See the ArchWiki for more information:
 ; https://wiki.archlinux.org/index.php/Backlight#ACPI
 ; Default: false
-enable-scroll = false
+enable-scroll		= false
 
-label = BACKLIGHT %percentage%%
+label			= BACKLIGHT %percentage%%
