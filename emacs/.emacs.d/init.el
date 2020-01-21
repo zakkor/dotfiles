@@ -12,8 +12,6 @@
   (load-file (expand-file-name file user-init-dir)))
 ;;
 
-;; Custom
-(load-user-file "custom.el")
 ;; MELPA
 (load-user-file "melpa.el")
 ;; use-package
@@ -24,6 +22,9 @@
 (load-user-file "packages.el")
 ;; Theme
 (load-user-file "theme.el")
+
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
