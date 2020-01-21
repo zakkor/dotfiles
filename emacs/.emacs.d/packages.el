@@ -25,9 +25,10 @@
 (use-package treemacs
   :config
   (setq
-   treemacs-no-png-images t
+   ;treemacs-no-png-images t
    treemacs-collapse-dirs 1
-   treemacs-width 20))
+   treemacs-width 30)
+  :bind ("<mouse-1>" . 'treemacs-single-click-expand-action))
 
 (use-package treemacs-evil
   :after treemacs evil)

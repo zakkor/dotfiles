@@ -10,3 +10,4 @@
   :height 110
   :weight 'normal
   :width 'normal)
+(set-frame-font "Ttyp0 10" nil t)
