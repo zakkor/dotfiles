@@ -13,6 +13,8 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config leaf_monocle true
 
+bspc rule -a Emacs state=tiled
+
 killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 polybar default &
