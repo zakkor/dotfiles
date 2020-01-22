@@ -1,3 +1,8 @@
+; (use-package exec-path-from-shell
+;   :config
+;   (when (memq window-system '(mac ns x))
+;   (exec-path-from-shell-initialize)))
+
 ;; Evil
 (use-package evil
   :config
@@ -8,26 +13,13 @@
   :config
   (projectile-mode 1))
 
-;; Dashboard
-(use-package dashboard
-  :config
-  (dashboard-setup-startup-hook)
-  (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
-  (setq dashboard-show-shortcuts nil)
-  (setq dashboard-startup-banner 1)
-  (setq dashboard-set-footer nil)
-  (setq dashboard-items '((projects . 5)
-    (recents  . 5)
-    (agenda . 5)
-    (registers . 5))))
-
 ;; Treemacs
 (use-package treemacs
   :config
   (setq
-   ;treemacs-no-png-images t
-   treemacs-collapse-dirs 1
-   treemacs-width 30)
+    treemacs-no-png-images 1
+    treemacs-collapse-dirs 1
+    treemacs-width 30)
   :bind ("<mouse-1>" . 'treemacs-single-click-expand-action))
 
 (use-package treemacs-evil
@@ -35,3 +27,27 @@
 
 (use-package treemacs-projectile
   :after treemacs projectile)
+
+;; Go
+(use-package go-mode)
+
+;; LSP
+(use-package lsp-mode
+  :hook (prog-mode . lsp)
+  :commands lsp)
+
+(use-package flycheck
+  :config
+  (global-flycheck-mode))
+
+(use-package company
+  :hook (after-init-hook . global-company-mode))
+
+(use-package company-lsp
+  :after lsp-mode company
+  :config
+  (push 'company-lsp company-backends))
+
+(use-package lsp-ui
+  :after lsp-mode
+  :hook (lsp-mode-hook . lsp-ui-mode))

@@ -14,15 +14,14 @@
 
 ;; MELPA
 (load-user-file "melpa.el")
+;; Settings
+(load-user-file "settings.el")
 ;; use-package
 (load-user-file "use-package.el")
-;; GUI Tweaks
-(load-user-file "gui-tweaks.el")
 ;; Packages
 (load-user-file "packages.el")
 ;; Theme
 (load-user-file "theme.el")
-
 
 
 (custom-set-variables

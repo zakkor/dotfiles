@@ -9,7 +9,7 @@
   ;(doom-themes-neotree-config)
   ;; or for treemacs users
   ;(setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
-  (doom-themes-treemacs-config)
+  ;(doom-themes-treemacs-config)
   
   ;; Corrects (and improves) org-mode's native fontification.
   ;(doom-themes-org-config)
