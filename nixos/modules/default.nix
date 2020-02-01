@@ -65,6 +65,8 @@
     shotwell
     signal-desktop
     emacs
+    evince
+    atom
   ];
 
   fonts.fonts = with pkgs; [
