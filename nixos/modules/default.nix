@@ -49,6 +49,7 @@
     google-chrome
     discord
     git
+    p7zip
     autocutsel
     scrot
     termite
@@ -64,9 +65,10 @@
     go-protobuf
     shotwell
     signal-desktop
-    emacs
-    evince
-    atom
+    pantheon.elementary-screenshot-tool
+
+    # Android
+    unstable.android-studio
   ];
 
   fonts.fonts = with pkgs; [
