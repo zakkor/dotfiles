@@ -64,12 +64,11 @@
     go-protobuf
     shotwell
     signal-desktop
-    emacs
     evince
-    atom
   ];
 
   fonts.fonts = with pkgs; [
+    roboto
     roboto-mono
     twemoji-color-font
   ];
