@@ -39,8 +39,6 @@
   services.interception-tools.enable = true;
 
   environment.systemPackages = with pkgs; [
-    unstable.go
-    unstable.vscode
     stow
     wget
     zip
@@ -67,9 +65,12 @@
     signal-desktop
     pantheon.elementary-screenshot-tool
 
-    # Android
     unstable.android-studio
+    unstable.go
+    unstable.vscode
   ];
+
+  programs.java.enable = true;
 
   fonts.fonts = with pkgs; [
     roboto-mono
