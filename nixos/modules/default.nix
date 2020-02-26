@@ -63,6 +63,7 @@
     go-protobuf
     shotwell
     signal-desktop
+    evince
     pantheon.elementary-screenshot-tool
 
     unstable.android-studio
@@ -73,6 +74,7 @@
   programs.java.enable = true;
 
   fonts.fonts = with pkgs; [
+    roboto
     roboto-mono
     twemoji-color-font
   ];
