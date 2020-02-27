@@ -65,6 +65,7 @@
     signal-desktop
     evince
     pantheon.elementary-screenshot-tool
+    pcmanfm
 
     unstable.android-studio
     unstable.go
@@ -74,6 +75,7 @@
   programs.java.enable = true;
 
   fonts.fonts = with pkgs; [
+    noto-fonts
     roboto
     roboto-mono
     twemoji-color-font

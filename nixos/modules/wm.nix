@@ -25,6 +25,7 @@
     (polybar.override { pulseSupport = true; })
     rofi
     feh
+    lxqt.compton-conf
   ];
 
   fonts.fonts = with pkgs; [
