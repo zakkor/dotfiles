@@ -17,8 +17,7 @@ fi
 
 for dir in */ ; do
   dest="${destinations[${dir%/}]}"
-  if [ -z "$dest" ]
-  then
+  if [ -z "$dest" ]; then
     stow -v "$dir"
   else
     stow -v -t "$dest" "$dir"
