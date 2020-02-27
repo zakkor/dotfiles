@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ -z $1 ]; then
-  echo "specify machine name as first argument (options: dinghy, mescal)"
+  echo "specify machine name as first argument (options: $(cd nixos/machines; echo *))"
   exit 1
 fi
 
