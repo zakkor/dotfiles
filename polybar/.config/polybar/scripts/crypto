@@ -1,0 +1,41 @@
+#!/usr/bin/env nix-shell
+#!nix-shell -i python3 -p python3 python37Packages.requests
+# coding=utf-8
+
+import json
+import math
+import requests
+
+API_URL = 'https://www.coinbase.com/api/v2/assets/prices?base=USD&filter=listed&resolution=latest' # Coinbase API
+
+r = requests.get(API_URL)
+coin_data = json.loads(r.text)['data'][0]
+
+# Latest price
+price = float(coin_data['prices']['latest'])
+# Change
+change_data = coin_data['prices']['latest_price']['percent_change']
+
+def percent_change(period):
+	val = change_data[period]
+	perc = round(100 * val, 2)
+	color = '#3BB92D'
+	trend = '↑'
+	if val < 0:
+		color = '#F7555E'
+		trend = '↓'
+
+	perc_format = '%{{F{}}}{}{}%%{{F-}}'
+	return perc_format.format(color, trend, perc)
+
+# Change
+periods = ['hour', 'day', 'week']
+info = '' 
+for i, period in enumerate(periods):
+	info += percent_change(period)
+	if i < len(periods)-1:
+		info += ' '
+
+precision = max(0, 4 - math.ceil(math.log10(price)))
+coin_symbol = 'BTC'
+print(('{} ${:.' + str(precision) + 'f} {}').format(coin_symbol, price, info))

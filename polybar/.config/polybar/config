@@ -5,7 +5,7 @@ height			= 30
 
 modules-center		= date
 modules-left		= bspwm
-modules-right		= pulseaudio backlight battery 
+modules-right		= btc-usd pulseaudio backlight battery 
 
 separator		= |
 module-margin		= 2
@@ -107,3 +107,7 @@ card			= intel_backlight
 enable-scroll		= false
 
 label			= BACKLIGHT %percentage%%
+
+[module/btc-usd]
+type = custom/script
+exec = ~/.config/polybar/scripts/crypto btc
