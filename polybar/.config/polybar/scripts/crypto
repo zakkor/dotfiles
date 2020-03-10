@@ -5,37 +5,59 @@
 import json
 import math
 import requests
+import signal
+import time
+import sys
 
-API_URL = 'https://www.coinbase.com/api/v2/assets/prices?base=USD&filter=listed&resolution=latest' # Coinbase API
+coin_name = 'BTC'
+currency = 'USD'
+currency_symbol = '$'
 
-r = requests.get(API_URL)
-coin_data = json.loads(r.text)['data'][0]
+def swap_currency(signum, frame):
+	global currency, currency_symbol
+	if currency == 'USD':
+		currency = 'GBP'
+		currency_symbol = '£'
+		return
+	currency = 'USD'
+	currency_symbol = '$'
 
-# Latest price
-price = float(coin_data['prices']['latest'])
-# Change
-change_data = coin_data['prices']['latest_price']['percent_change']
+# Register signal
+signal.signal(signal.SIGUSR1, swap_currency)
 
-def percent_change(period):
-	val = change_data[period]
-	perc = round(100 * val, 2)
-	color = '#3BB92D'
-	trend = '↑'
-	if val < 0:
-		color = '#F7555E'
-		trend = '↓'
+while True:
+	API_URL = 'https://www.coinbase.com/api/v2/assets/prices?base={}&filter=listed&resolution=latest'.format(currency) # Coinbase API
 
-	perc_format = '%{{F{}}}{}{}%%{{F-}}'
-	return perc_format.format(color, trend, perc)
+	r = requests.get(API_URL)
+	coin_data = json.loads(r.text)['data'][0]
 
-# Change
-periods = ['hour', 'day', 'week']
-info = '' 
-for i, period in enumerate(periods):
-	info += percent_change(period)
-	if i < len(periods)-1:
-		info += ' '
+	# Latest price
+	price = float(coin_data['prices']['latest'])
+	# Change
+	change_data = coin_data['prices']['latest_price']['percent_change']
 
-precision = max(0, 4 - math.ceil(math.log10(price)))
-coin_symbol = 'BTC'
-print(('{} ${:.' + str(precision) + 'f} {}').format(coin_symbol, price, info))
+	def percent_change(period):
+		val = change_data[period]
+		perc = round(100 * val, 2)
+		color = '#3BB92D'
+		trend = '↑'
+		if val < 0:
+			color = '#F7555E'
+			trend = '↓'
+
+		perc_format = '%{{F{}}}{}{}%%{{F-}}'
+		return perc_format.format(color, trend, perc)
+
+	# Change
+	periods = ['hour', 'day', 'week']
+	info = '' 
+	for i, period in enumerate(periods):
+		info += percent_change(period)
+		if i < len(periods)-1:
+			info += ' '
+
+	precision = max(0, 4 - math.ceil(math.log10(price)))
+	print(('{} {}{:.' + str(precision) + 'f} {}').format(coin_name, currency_symbol, price, info))
+	sys.stdout.flush()
+
+	time.sleep(3)
