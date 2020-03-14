@@ -1,0 +1,3 @@
+#!/bin/sh
+
+9 acme -a -f /mnt/font/RobotoMono-Regular/14a/font

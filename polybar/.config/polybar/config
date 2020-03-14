@@ -70,7 +70,7 @@ type			= internal/pulseaudio
 sink			= alsa_output.pci-0000_00_14.2.analog-stereo
 use-ui-max		= true
 interval		= 5
-format-volume		= VOLUME <label-volume>
+format-volume		= Volume <label-volume>
 label-muted		= muted
 label-muted-foreground	= #666
 
@@ -83,8 +83,8 @@ adapter			= AC
 poll-interval		= 5
 format-charging		= <label-charging>
 format-discharging	= <label-discharging>
-label-charging		= CHARGING %percentage%%
-label-discharging	= DISCHARGING %percentage%%
+label-charging		= Charging %percentage%%
+label-discharging	= Discharging %percentage%%
 label-full		=
 
 [module/backlight]
@@ -105,8 +105,7 @@ card			= intel_backlight
 ; https://wiki.archlinux.org/index.php/Backlight#ACPI
 ; Default: false
 enable-scroll		= false
-
-label			= BACKLIGHT %percentage%%
+label			= Backlight %percentage%%
 
 [module/btc-usd]
 type = custom/script
