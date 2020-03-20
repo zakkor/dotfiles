@@ -1,5 +1,0 @@
-#!/bin/sh
-
-9 acme -a -f /mnt/font/RobotoMono-Regular/14a/font $@
-
-acme-lsp -server '([/\\]go\.mod)|([/\\]go\.sum)|(\.go)$:gopls serve'

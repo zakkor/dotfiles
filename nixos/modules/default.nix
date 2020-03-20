@@ -66,8 +66,6 @@
     evince
     pantheon.elementary-screenshot-tool
     pcmanfm
-    gnuapl
-    plan9port
 
     unstable.android-studio
     unstable.go
