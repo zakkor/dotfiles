@@ -1,10 +1,11 @@
 self: super:
 
-let inherit (self) fetchurl;
+let inherit (self) fetchurl callPackage;
 in
 {
   unstable = import <nixos-unstable> { config = self.config; };
 
+  # Overrides
   hubstaff = super.hubstaff.overrideAttrs (old: rec {
     name = "hubstaff-${version}";
     version = "1.5.5-4498311a";
@@ -21,4 +22,7 @@ in
       sha256 = "0kx92i8naqr3algmyy3wyzbh8146z7gigxwf1nbpg1gl16wlplaq";
     };
   });
+
+  # Our own packages
+  shakti = callPackage ../packages/shakti.nix {};
 }

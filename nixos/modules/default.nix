@@ -66,6 +66,7 @@
     evince
     pantheon.elementary-screenshot-tool
     pcmanfm
+    shakti
 
     unstable.android-studio
     unstable.go
