@@ -76,9 +76,7 @@
   programs.java.enable = true;
 
   fonts.fonts = with pkgs; [
-    noto-fonts
-    roboto
+    # Editor font
     roboto-mono
-    twemoji-color-font
   ];
 }

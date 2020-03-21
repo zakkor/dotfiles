@@ -7,7 +7,7 @@
 ! "Number of columns" Set from: Default
 ! rofi.columns:                        1
 ! "Font to use" Set from: Default
-rofi.font:                           Ttyp0 18px
+rofi.font:                           Roboto 20px
 ! "Border width" Set from: Default
 ! rofi.bw:                             1
 ! "Location on screen" Set from: Default

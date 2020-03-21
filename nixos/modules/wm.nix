@@ -29,6 +29,9 @@
   ];
 
   fonts.fonts = with pkgs; [
-    unstable.uw-ttyp0
+    # Polybar font
+    roboto
+    # Emoji font
+    twemoji-color-font
   ];
 }
