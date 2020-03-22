@@ -21,7 +21,7 @@
     isNormalUser = true;
     home = "/home/ed";
     useDefaultShell = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "video" ];
   };
 
   users.defaultUserShell = pkgs.bash;
@@ -67,6 +67,7 @@
     pantheon.elementary-screenshot-tool
     pcmanfm
     shakti
+    rlwrap
 
     unstable.android-studio
     unstable.go

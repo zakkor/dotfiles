@@ -11,14 +11,20 @@
   boot.loader.grub.device = "/dev/sda";
 
   networking.hostName = "dinghy";
-	networking.networkmanager.enable = true;
+  networking.networkmanager.enable = true;
 
   # Touch pad and trackpoint
-	hardware.brightnessctl.enable = true;
-	hardware.trackpoint.enable = true;
-	hardware.trackpoint.sensitivity = 80;
-	hardware.trackpoint.emulateWheel = true;
-	services.xserver.libinput.enable = true;
+  services.xserver.libinput.enable = true;
+  hardware.brightnessctl.enable = true;
+  hardware.trackpoint.enable = true;
+  hardware.trackpoint.sensitivity = 80;
+  hardware.trackpoint.emulateWheel = true;
 
-	system.stateVersion = "19.09";
+  # Allow video group to access backlight, so we can change the brightness from Polybar
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", RUN+="${pkgs.coreutils}/bin/chgrp video /sys/class/backlight/%k/brightness"
+    ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", RUN+="${pkgs.coreutils}/bin/chmod g+w /sys/class/backlight/%k/brightness"
+  '';
+
+  system.stateVersion = "19.09";
 }
