@@ -68,6 +68,7 @@
     pcmanfm
     shakti
     rlwrap
+    neovim
 
     unstable.android-studio
     unstable.go
