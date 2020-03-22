@@ -15,6 +15,12 @@ bspc config leaf_monocle true
 
 bspc rule -a Emacs state=tiled
 
+# Start Polybar
 killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 polybar default &
+
+# Start Dunst
+killall -q dunst
+while pgrep -u $UID -x dunst >/dev/null; do sleep 1; done
+dunst &

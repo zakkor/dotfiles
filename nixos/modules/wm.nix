@@ -24,6 +24,7 @@
   environment.systemPackages = with pkgs; [
     (polybar.override { pulseSupport = true; })
     rofi
+    dunst
     feh
     lxqt.compton-conf
   ];
