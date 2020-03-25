@@ -3,9 +3,13 @@ wm-restack		= bspwm
 font-0			= Roboto Mono:size=10; 2
 height			= 30
 
+background = %ffffff
+
+cursor-click = pointer
+
 modules-center		= date
 modules-left		= bspwm
-modules-right		= btc-usd pulseaudio backlight battery 
+modules-right		= btc-usd pulseaudio backlight battery menu
 
 separator		= |
 module-margin		= 2
@@ -20,13 +24,9 @@ type			= internal/bspwm
 
 label-focused		= %name%
 label-focused-padding	= 2
-label-focused-background = %ffffff
-label-focused-foreground = %000000
 
 label-empty		= %name%
 label-empty-padding	= 2
-label-empty-background	= %111111
-label-empty-foreground	= %888888
 
 label-urgent		= %name%
 label-urgent-padding	= 2
@@ -112,3 +112,23 @@ type = custom/script
 exec = ~/.config/polybar/scripts/crypto
 click-left = kill -USR1 %pid%
 tail = true
+
+[module/menu]
+type = custom/menu
+
+label-open = Power
+
+; If true, <label-toggle> will be to the left of the menu items (default).
+; If false, it will be on the right of all the items.
+expand-right = true
+
+; "menu-LEVEL-N" has the same properties as "label-NAME" with
+; the additional "exec" property
+;
+; Available exec commands:
+;   menu-open-LEVEL
+;   menu-close
+; Other commands will be executed using "/bin/sh -c $COMMAND"
+
+menu-0-0 = Shutdown
+menu-0-0-exec = echo "hello"

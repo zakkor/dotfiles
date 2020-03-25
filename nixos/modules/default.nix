@@ -66,9 +66,8 @@
     evince
     pantheon.elementary-screenshot-tool
     pcmanfm
-    shakti
-    rlwrap
     neovim
+    acme2k
 
     unstable.android-studio
     unstable.go
