@@ -63,13 +63,10 @@
     go-protobuf
     shotwell
     signal-desktop
-    evince
     pantheon.elementary-screenshot-tool
     pcmanfm
-    neovim
     acme2k
 
-    unstable.android-studio
     unstable.go
     unstable.vscode
   ];
