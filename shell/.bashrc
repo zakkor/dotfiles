@@ -3,6 +3,8 @@ BASH_DATA_PATH=$HOME/.local/share/bash
 
 mkdir -p $BASH_DATA_PATH
 
+export PS1="\w \\$ "
+
 # Load configuration
 for conf in $BASH_CONFIG_PATH/config.d/*.bash; do
     source $conf

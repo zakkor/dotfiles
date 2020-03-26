@@ -1,0 +1,9 @@
+#!/bin/sh
+
+export tabstop=2
+export TERM=dumb
+export PAGER=nobs
+
+# TODO: plumber
+
+9 acme $1
