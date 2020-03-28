@@ -66,11 +66,18 @@
     pantheon.elementary-screenshot-tool
     pcmanfm
     acme2k
+    binutils
+    gdb
+    file
+    upwork
 
     unstable.go
     unstable.vscode
   ];
 
+	systemd.coredump.extraConfig = ''
+		Compress=false
+	'';
   programs.java.enable = true;
 
   fonts.fonts = with pkgs; [
