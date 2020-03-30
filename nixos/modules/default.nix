@@ -39,6 +39,7 @@
   services.interception-tools.enable = true;
 
   environment.systemPackages = with pkgs; [
+    #.nixos-package-append.#
     stow
     wget
     zip
@@ -66,6 +67,7 @@
     pantheon.elementary-screenshot-tool
     pcmanfm
     acme2k
+    nodejs
 
     unstable.go
     unstable.vscode
