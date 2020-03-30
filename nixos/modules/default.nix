@@ -68,11 +68,16 @@
     pcmanfm
     acme2k
     nodejs
+    file
+    upwork
 
     unstable.go
     unstable.vscode
   ];
 
+	systemd.coredump.extraConfig = ''
+		Compress=false
+	'';
   programs.java.enable = true;
 
   fonts.fonts = with pkgs; [
