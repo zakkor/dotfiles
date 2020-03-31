@@ -21,7 +21,7 @@
     isNormalUser = true;
     home = "/home/ed";
     useDefaultShell = true;
-    extraGroups = [ "wheel" "networkmanager" "video" ];
+    extraGroups = [ "wheel" "networkmanager" "video" "docker" ];
   };
 
   users.defaultUserShell = pkgs.bash;
@@ -34,6 +34,8 @@
     enable = true;
     layout = "us";
   };
+
+  virtualisation.docker.enable = true;
 
   # Remap caps lock to esc
   services.interception-tools.enable = true;
@@ -70,6 +72,7 @@
     nodejs
     file
     upwork
+    docker-compose
 
     unstable.go
     unstable.vscode
