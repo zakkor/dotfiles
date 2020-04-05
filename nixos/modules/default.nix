@@ -7,6 +7,9 @@
   ];
 
   # TODO: split up into more sub-files
+
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   nixpkgs.config = { allowUnfree = true; };
 
   time.timeZone = "Europe/Bucharest";
@@ -53,6 +56,7 @@
     p7zip
     autocutsel
     scrot
+    emacs
     termite
     qbittorrent
     screenfetch
@@ -71,20 +75,24 @@
     acme2k
     nodejs
     file
+    ripgrep
     upwork
     docker-compose
+    racket
 
     unstable.go
     unstable.vscode
   ];
 
-	systemd.coredump.extraConfig = ''
-		Compress=false
-	'';
+  systemd.coredump.extraConfig = ''
+    Compress=false
+  '';
+
   programs.java.enable = true;
 
   fonts.fonts = with pkgs; [
     # Editor font
     roboto-mono
+    menlo
   ];
 }
