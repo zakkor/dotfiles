@@ -25,5 +25,6 @@ in
   
   # Packages
   acme2k = callPackage ../packages/acme2k {};
+  menlo = callPackage ../packages/menlo {};
   upwork = callPackage ../packages/upwork {};
 }

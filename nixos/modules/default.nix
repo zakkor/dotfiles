@@ -73,18 +73,19 @@
     file
     upwork
     docker-compose
+    skype
+    racket
+    ripgrep
 
     unstable.go
     unstable.vscode
   ];
 
-	systemd.coredump.extraConfig = ''
-		Compress=false
-	'';
   programs.java.enable = true;
 
   fonts.fonts = with pkgs; [
     # Editor font
     roboto-mono
+    menlo
   ];
 }
