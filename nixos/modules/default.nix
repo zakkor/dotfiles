@@ -77,7 +77,7 @@
     yarn
     file
     ripgrep
-    #upwork
+    upwork
     docker-compose
     skype
     slack

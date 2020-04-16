@@ -6,11 +6,11 @@
 
 stdenv.mkDerivation rec {
   name = "upwork-${version}";
-  version = "5.3.3";
+  version = "5.3.3-883";
 
   src = fetchurl {
-    url = https://updates-desktopapp.upwork.com/binaries/v5_3_3_862_0gofuuatmjqd0n86/upwork_5.3.3.862_amd64.deb;
-    sha256 = "0pplz41kp1l7nyw9kmf0p608p2nx9iy3b0i2dss8pkxmilb3x714";
+    url = https://updates-desktopapp.upwork.com/binaries/v5_3_3_883_1f817bc1fefd44e7/upwork_5.3.3.883_amd64.deb;
+    sha256 = "072zns79w4h46bvbj23rvr8i12sf2l378ry0z3hchwcimkrph9wx";
   };
 
   nativeBuildInputs = [ 
@@ -34,12 +34,12 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     mv usr $out
-    sed -e "s|/usr/|$out/|g" -i $out/bin/upwork
-    sed -e "s|/usr/|$out/|g" -i $out/share/menu/upwork
+    mv opt $out
+    sed -e "s|/opt/|$out/opt/|g" -i $out/share/applications/upwork.desktop
     patchelf --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
-        $out/share/upwork/upwork
+        $out/opt/Upwork/upwork
 
-    wrapProgram $out/share/upwork/upwork \
+    wrapProgram $out/opt/Upwork/upwork \
         "''${gappsWrapperArgs[@]}" \
         --prefix XDG_DATA_DIRS : "${gtk3}/share/gsettings-schemas/${gtk3.name}/" \
         --prefix LD_LIBRARY_PATH : ${libPath}
