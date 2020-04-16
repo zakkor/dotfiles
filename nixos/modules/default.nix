@@ -74,11 +74,13 @@
     pcmanfm
     acme2k
     nodejs
+    yarn
     file
     ripgrep
-    upwork
+    #upwork
     docker-compose
     skype
+    slack
     racket
     ripgrep
 

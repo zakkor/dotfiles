@@ -1,6 +1,6 @@
 self: super:
 
-let inherit (self)  fetchurl runCommand callPackage;
+let inherit (self) fetchurl runCommand callPackage;
 in
 {
   unstable = import <nixos-unstable> { config = self.config; };
@@ -27,5 +27,4 @@ in
   acme2k = callPackage ../packages/acme2k {};
   menlo = callPackage ../packages/menlo {};
   upwork = callPackage ../packages/upwork {};
-  menlo = callPackage ../packages/menlo {};
 }
