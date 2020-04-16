@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, dpkg, wrapGAppsHook
+{ stdenv, fetchurl, dpkg, wrapGAppsHook, autoPatchelfHook
 , alsaLib, atk, at-spi2-atk, at-spi2-core, cairo, cups, dbus, expat, fontconfig, freetype
 , gdk-pixbuf, glib, gtk3, libnotify, libX11, libXcomposite, libXcursor, libXdamage, libuuid
 , libXext, libXfixes, libXi, libXrandr, libXrender, libXtst, nspr, nss, libxcb
@@ -13,20 +13,23 @@ stdenv.mkDerivation rec {
     sha256 = "072zns79w4h46bvbj23rvr8i12sf2l378ry0z3hchwcimkrph9wx";
   };
 
+  dontWrapGApps = true;
+
   nativeBuildInputs = [ 
     dpkg
     wrapGAppsHook
+    autoPatchelfHook
   ];
 
-  dontWrapGApps = true;
-
-  libPath = stdenv.lib.makeLibraryPath [
+  buildInputs = [
     libcxx systemd libpulseaudio
     stdenv.cc.cc alsaLib atk at-spi2-atk at-spi2-core cairo cups dbus expat fontconfig freetype
     gdk-pixbuf glib gtk3 libnotify libX11 libXcomposite libuuid
     libXcursor libXdamage libXext libXfixes libXi libXrandr libXrender
     libXtst nspr nss libxcb pango systemd libXScrnSaver
-   ];
+  ];
+
+  libPath = stdenv.lib.makeLibraryPath buildInputs;
 
   unpackPhase = ''
     dpkg-deb -x ${src} ./
@@ -36,8 +39,6 @@ stdenv.mkDerivation rec {
     mv usr $out
     mv opt $out
     sed -e "s|/opt/|$out/opt/|g" -i $out/share/applications/upwork.desktop
-    patchelf --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
-        $out/opt/Upwork/upwork
 
     wrapProgram $out/opt/Upwork/upwork \
         "''${gappsWrapperArgs[@]}" \
