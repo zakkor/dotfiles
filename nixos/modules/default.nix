@@ -73,7 +73,7 @@
     pantheon.elementary-screenshot-tool
     pcmanfm
     acme2k
-    nodejs
+    nodejs-12_x
     yarn
     file
     ripgrep
