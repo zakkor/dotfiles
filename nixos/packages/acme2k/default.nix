@@ -30,6 +30,10 @@ pkgs.plan9port.overrideAttrs(oldAttrs: {
     ];
 
     postPatch = ''
+    	# disable bartflag
+    	substituteInPlace src/cmd/acme/config.h \
+    		--replace "int bartflag			= TRUE;" "int bartflag			= FALSE;"
+    
       # hardcoded path
       substituteInPlace src/cmd/acme/config.h \
         --replace /lib/font/bit/profont/profont-12.font /mnt/font/RobotoMono-Regular/12a/font \
