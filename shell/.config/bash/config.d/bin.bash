@@ -3,5 +3,5 @@ if [[ -d "$HOME/bin" ]]; then
 fi
 
 if [[ -d "$HOME/.yarn/bin" ]]; then
-	export PATH=$HOME/.yarn/bin:$PATH
+    export PATH="$HOME/.yarn/bin":$PATH
 fi
