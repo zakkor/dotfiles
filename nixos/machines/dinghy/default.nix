@@ -15,7 +15,6 @@
 
   # Touch pad and trackpoint
   services.xserver.libinput.enable = true;
-  hardware.brightnessctl.enable = true;
   hardware.trackpoint.enable = true;
   hardware.trackpoint.sensitivity = 80;
   hardware.trackpoint.emulateWheel = true;

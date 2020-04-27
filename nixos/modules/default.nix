@@ -14,11 +14,11 @@
 
   time.timeZone = "Europe/Bucharest";
 
-  i18n = {
-    consoleFont = "Lat2-Terminus14";
-    consoleKeyMap = "us";
-    defaultLocale = "en_US.UTF-8";
-  };
+	console = {
+		font = "Lat2-Terminus14";
+		keyMap = "us";
+	};
+  i18n.defaultLocale = "en_US.UTF-8";
 
   users.users.ed = {
     isNormalUser = true;

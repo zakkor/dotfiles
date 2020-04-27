@@ -1,11 +1,11 @@
 { config, pkgs, ... }:
 {
   services.xserver = {
-    displayManager.lightdm.enable = true;
-    desktopManager = {
-      default = "none";
-      xterm.enable = false;
-    };
+    displayManager = {
+			lightdm.enable = true;
+			defaultSession = "none+bspwm";
+		};
+    desktopManager.xterm.enable = false;
     windowManager.bspwm.enable = true;
   };
 
