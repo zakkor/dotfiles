@@ -10,9 +10,8 @@
   };
 
   # Compositor
-  services.compton = {
+  services.picom = {
     enable = true;
-    backend = "glx";
     fade = true;
     shadow = true;
     fadeDelta = 4;
@@ -26,7 +25,6 @@
     rofi
     dunst
     feh
-    lxqt.compton-conf
   ];
 
   fonts.fonts = with pkgs; [

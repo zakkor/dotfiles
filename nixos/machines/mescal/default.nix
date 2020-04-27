@@ -22,7 +22,7 @@
     ${pkgs.xorg.xrandr}/bin/xrandr --output DP-0 --mode 3440x1440 --rate 120.00
   '';
 
-  services.compton.refreshRate = 120;
+  services.picom.refreshRate = 120;
 
   system.stateVersion = "19.09";
 }

@@ -83,6 +83,7 @@
     slack
     racket
     ripgrep
+    neovim
 
     unstable.go
     unstable.vscode
