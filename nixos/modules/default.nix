@@ -84,6 +84,7 @@
     racket
     ripgrep
     neovim
+    kakoune
 
     unstable.go
     unstable.vscode
