@@ -1,1 +1,6 @@
 colorscheme tomorrow-night
+addhl global/ wrap
+addhl global/ number-lines -hlcursor -relative
+
+# TODO highlighting
+add-highlighter global/ regex \b(TODO|FIXME|XXX|NOTE)\b 0:default+rb
