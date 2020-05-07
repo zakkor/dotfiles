@@ -1,6 +1,17 @@
 colorscheme tomorrow-night
+
+# line wrapping
 addhl global/ wrap
-addhl global/ number-lines -hlcursor -relative
+# line numbers
+addhl global/ number-lines -hlcursor -relative -separator '  '
 
 # TODO highlighting
 add-highlighter global/ regex \b(TODO|FIXME|XXX|NOTE)\b 0:default+rb
+
+# yank from system clipboard
+hook global NormalKey y|d|c %{ nop %sh{
+    printf %s "$kak_main_reg_dquote" | xsel --input --clipboard
+}}
+# paste from system clipboard with `,p` and `,P`
+map global user p '<a-!>xsel --output --clipboard<ret>'
+map global user P '!xsel --output --clipboard<ret>'

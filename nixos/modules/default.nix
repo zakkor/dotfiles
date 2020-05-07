@@ -85,6 +85,7 @@
     ripgrep
     neovim
     kakoune
+    xsel
 
     unstable.go
     unstable.vscode
