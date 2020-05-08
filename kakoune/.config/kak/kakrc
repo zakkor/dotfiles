@@ -1,9 +1,21 @@
 colorscheme tomorrow-night
 
+# tab width
+set global tabstop 2
+set global indentwidth 2
+
 # line wrapping
 addhl global/ wrap
 # line numbers
 addhl global/ number-lines -hlcursor -relative -separator '  '
+
+set-option global scrolloff 3,20
+   
+# show matching brace
+add-highlighter global/ show-matching
+
+# highlight current search
+add-highlighter global/ dynregex '%reg{/}' 0:+u
 
 # TODO highlighting
 add-highlighter global/ regex \b(TODO|FIXME|XXX|NOTE)\b 0:default+rb
@@ -12,6 +24,25 @@ add-highlighter global/ regex \b(TODO|FIXME|XXX|NOTE)\b 0:default+rb
 hook global NormalKey y|d|c %{ nop %sh{
     printf %s "$kak_main_reg_dquote" | xsel --input --clipboard
 }}
+
 # paste from system clipboard with `,p` and `,P`
 map global user p '<a-!>xsel --output --clipboard<ret>'
 map global user P '!xsel --output --clipboard<ret>'
+
+# use rg for :grep
+set global grepcmd 'rg --column'
+
+# fix tab behavior
+map global insert <tab> '<a-;><gt>'
+map global insert <s-tab> '<a-;><lt>'
+
+# plugins
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
+
+plug 'andreyorst/smarttab.kak'
+
+# plugin configuration
+# these languages will use `expandtab' behavior
+hook global WinSetOption filetype=(js|html) expandtab
+# these languages will use `noexpandtab' behavior
+hook global WinSetOption filetype=(makefile) noexpandtab
