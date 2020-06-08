@@ -26,6 +26,13 @@
     useDefaultShell = true;
     extraGroups = [ "wheel" "networkmanager" "video" "docker" ];
   };
+  users.users.www-data = {
+    isNormalUser = true;
+    home = "/home/www-data";
+    uid = 82;
+    useDefaultShell = true;
+    extraGroups = [ "wheel" "networkmanager" "video" "docker" ];
+  };
 
   users.defaultUserShell = pkgs.bash;
 
@@ -44,19 +51,17 @@
   services.interception-tools.enable = true;
 
   environment.systemPackages = with pkgs; [
-    #.nixos-package-append.#
     stow
     wget
     zip
     unzip
+    p7zip
     nixfmt
     google-chrome
     discord
     git
-    p7zip
     autocutsel
     scrot
-    emacs
     termite
     qbittorrent
     screenfetch
@@ -69,7 +74,6 @@
     protobuf
     go-protobuf
     shotwell
-    signal-desktop
     pantheon.elementary-screenshot-tool
     pcmanfm
     acme2k
@@ -78,14 +82,17 @@
     file
     ripgrep
     upwork
-    docker-compose
     skype
     slack
-    racket
-    ripgrep
-    neovim
     kakoune
     xsel
+    ranger
+    gnumake
+    erlang
+
+    # Adforum deps
+    docker-compose
+    google-cloud-sdk
 
     unstable.go
     unstable.vscode

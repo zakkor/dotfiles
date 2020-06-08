@@ -11,3 +11,4 @@ for conf in $BASH_CONFIG_PATH/config.d/*.bash; do
 done
 
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
