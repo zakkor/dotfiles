@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+function clean() {
+	printf '%s' "$1" | sed $'s,\x1b\\[[0-9;]*[a-zA-Z],,g'
+}
+
+rewrite=
+
+stdbuf -oL "$@" 2>&1 |
+	while IFS= read -r line
+	do
+		l=`clean "$line"`
+		
+		# Rewrite two-line output from create-react-app to use proper UNIX file adresses
+		# We're on the lookout for a second rewrite marker
+		if [[ ! -z "$rewrite" ]]; then
+			# If we found the second marker, merge the previously remembered line, and the properly formatted current line as one
+			[[ "$l" =~ \ +Line\ ([0-9]+:[0-9]+):\ +(.*) ]] && echo -n "$rewrite:" && echo "${BASH_REMATCH[1]} ${BASH_REMATCH[2]}" && continue
+			
+			# Didn't find second marker, reset
+			rewrite=
+			echo "$l"
+			continue
+		fi
+		# Found first part of line we need to rewrite - remember line and don't print line yet
+		[[ "$l" =~ (^\.\/src\/.+)\n ]] && rewrite="$l" && continue
+		
+		echo "$l"
+	done
