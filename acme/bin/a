@@ -1,9 +1,16 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 export tabstop=2
 export TERM=dumb
 export PAGER=nobs
 
-# TODO: plumber
+# Plumber
+PLAN9="$(cd $(dirname $(readlink $(which 9)))/../plan9; echo $(pwd))"
+
+if [ ! "$(pgrep plumber)" ]; then
+	9 plumber && echo "started plumber"
+	
+	cat ~/.acme/plumbing "$PLAN9/plumb/basic" | 9 9p write plumb/rules
+fi
 
 9 acme $1
