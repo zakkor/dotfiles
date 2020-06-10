@@ -1,9 +1,9 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 symbol="$1"
 
 if [ ! "$symbol" ]; then
-	symbol='//'
+	symbol='\/\/'
 fi
 
-sed s/^$symbol\ //
+sed s/^"$symbol"\ // | trnewline
