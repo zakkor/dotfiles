@@ -109,7 +109,7 @@ int bartflag			= FALSE;
 #define C_TXTHLBG		DDarkyellow
 #define C_TXTHLFG		0x000000FF
 
-#define C_WINBUTTON   DPurpleblue
+#define C_WINBUTTON		DPurpleblue
 #define C_COLBUTTON		DPurpleblue
 #define C_TMPBUTTON		DMedblue
 #define C_SCROLLBG		DYellowgreen
