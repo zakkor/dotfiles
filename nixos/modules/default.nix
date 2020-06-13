@@ -76,7 +76,7 @@
     shotwell
     pantheon.elementary-screenshot-tool
     pcmanfm
-    acme2k
+    acme
     nodejs-12_x
     yarn
     file
@@ -88,7 +88,6 @@
     xsel
     ranger
     gnumake
-    erlang
 
     # Adforum deps
     docker-compose

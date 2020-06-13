@@ -5,12 +5,12 @@
 }:
 
 pkgs.plan9port.overrideAttrs(oldAttrs: {
-    src = runCommand "acme2k" {
+    src = runCommand "acme" {
       srcAcme2k = fetchFromGitHub {
-        owner = "siacali";
+        owner = "karahobny";
         repo = "acme2k";
-        rev = "4dc732aae335254591e28ff3109c54059458e94e";
-        sha256 = "065589vfwxqj21zjpsf4nq1zbn7509glzm6qkg3wdpzbmncdqn9z";
+        rev = "3cac97e229c07a4a5fb3e6ae5e9115202934f310";
+        sha256 = "1sswvyivqfib2xgajbjkf7rigmj7wz12yphacwfsz0rr1wyzjivb";
       };
       srcPlan9Port = fetchFromGitHub {
         owner = "9fans";
@@ -26,6 +26,7 @@ pkgs.plan9port.overrideAttrs(oldAttrs: {
     '';
     
     patches = [
+      ./colorBlending.patch
       ./indentSpaces.patch
       ./controlS-Put.patch
     ];

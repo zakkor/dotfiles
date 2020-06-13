@@ -24,7 +24,7 @@ in
   });
   
   # Packages
-  acme2k = callPackage ../packages/acme2k {};
+  acme = callPackage ../packages/acme {};
   menlo = callPackage ../packages/menlo {};
   upwork = callPackage ../packages/upwork {};
 }
