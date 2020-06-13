@@ -13,4 +13,5 @@ if [ ! "$(pgrep plumber)" ]; then
 	cat ~/.acme/plumbing "$PLAN9/plumb/basic" | 9 9p write plumb/rules
 fi
 
-9 acme $1
+9 acme $1 &
+disown
