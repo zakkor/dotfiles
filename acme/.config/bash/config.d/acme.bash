@@ -1,3 +1,5 @@
+alias rg="rg -Hn --color never --column --no-heading"
+
 if [ $TERM = "dumb" ]; then
 	export PS1="$PS1\n"
 	unalias ls

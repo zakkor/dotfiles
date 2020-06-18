@@ -88,6 +88,7 @@
     xsel
     ranger
     gnumake
+    pavucontrol
 
     # Adforum deps
     docker-compose
@@ -97,8 +98,18 @@
     unstable.vscode
   ];
 
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "ed" ];
+
   systemd.coredump.extraConfig = ''
     Compress=false
+  '';
+
+  networking.extraHosts = ''
+    127.0.0.1 example.com
+    127.0.0.1 robots.example.com
+    127.0.0.1 projects.example.com
+    127.0.0.1 arrival.example.com
   '';
 
   programs.java.enable = true;
