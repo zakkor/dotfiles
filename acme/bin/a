@@ -3,6 +3,7 @@
 export tabstop=2
 export TERM=dumb
 export PAGER=nobs
+export BROWSER=google-chrome-stable
 
 # Plumber
 PLAN9="$(cd $(dirname $(readlink $(which 9)))/../plan9; echo $(pwd))"

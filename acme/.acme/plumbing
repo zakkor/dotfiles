@@ -11,7 +11,7 @@ plumb	start rc -c 'cd '$wdir'; cd `{git rev-parse --show-toplevel} && [ -d .git 
 
 # JavaScript import
 type	is	text
-data	matches	'''(.+)'''
+data    matches    '''(.+)'''
 arg	isfile $1.js
 data	set	$file
 plumb to edit
