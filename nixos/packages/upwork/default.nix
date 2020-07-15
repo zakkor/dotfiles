@@ -6,11 +6,11 @@
 
 stdenv.mkDerivation rec {
   pname = "upwork";
-  version = "5.4.2.2";
+  version = "5.4.2.8";
 
   src = fetchurl {
-    url = "https://updates-desktopapp.upwork.com/binaries/v5_4_2_2_18294613b3a84769/upwork_5.4.2.2_amd64.deb";
-    sha256 = "10qqrqs00h3q4wxj66wfdgqijrwzzcqsz925147ianjrwlhjphg0";
+    url = "https://updates-desktopapp.upwork.com/binaries/v5_4_2_8_17caa201e7ae4660/upwork_5.4.2.8_amd64.deb";
+    sha256 = "1fzg44x1gjsh37m1j92xqdmfn8x7kb3wlx3zfba6mk5bj9vb4cdd";
   };
 
   dontWrapGApps = true;
