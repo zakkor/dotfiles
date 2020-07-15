@@ -46,4 +46,10 @@ stdenv.mkDerivation rec {
       --prefix LD_LIBRARY_PATH : ${libPath}
   '';
 
+  meta = with stdenv.lib; {
+    description = "Online freelancing platform desktop application for time tracking";
+    homepage = "https://www.upwork.com/ab/downloads/";
+    license = licenses.unfree;
+    maintainers = with maintainers; [ zakkor ];
+  };
 }
