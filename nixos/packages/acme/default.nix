@@ -4,6 +4,10 @@
   , fetchFromGitHub
 }:
 
+# Ideas for patches:
+# - Ability to configure certain key-combos to execute a command (should use a keybinding daemon (sxhkd) and acmefocused (https://godoc.org/github.com/fhs/acme-lsp/cmd/acmefocused))
+# - Ctrl+X with no selection selects whole line then cuts
+
 pkgs.plan9port.overrideAttrs(oldAttrs: {
     src = runCommand "acme" {
       srcAcme2k = fetchFromGitHub {

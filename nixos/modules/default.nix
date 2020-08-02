@@ -94,6 +94,7 @@
     docker-compose
     google-cloud-sdk
 
+    unstable.cypress
     unstable.go
     unstable.vscode
   ];
