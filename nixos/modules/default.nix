@@ -58,7 +58,6 @@
     p7zip
     nixfmt
     google-chrome
-    discord
     git
     autocutsel
     scrot
@@ -89,11 +88,11 @@
     ranger
     gnumake
     pavucontrol
-
-    # Adforum deps
+    firefox
+    elixir
     docker-compose
-    google-cloud-sdk
-
+    
+    unstable.discord
     unstable.cypress
     unstable.go
     unstable.vscode
