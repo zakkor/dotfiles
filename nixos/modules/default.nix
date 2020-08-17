@@ -93,7 +93,6 @@
     docker-compose
     
     unstable.discord
-    unstable.cypress
     unstable.go
     unstable.vscode
   ];
