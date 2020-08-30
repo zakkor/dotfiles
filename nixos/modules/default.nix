@@ -91,6 +91,7 @@
     firefox
     elixir
     docker-compose
+		calibre
     
     unstable.discord
     unstable.go
