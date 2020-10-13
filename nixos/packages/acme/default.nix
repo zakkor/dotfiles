@@ -30,6 +30,7 @@ pkgs.plan9port.overrideAttrs(oldAttrs: {
     '';
     
     patches = [
+      ./spaces.patch
       ./colorBlending.patch
       ./indentSpaces.patch
       ./controlS-Put.patch
