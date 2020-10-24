@@ -27,4 +27,5 @@ in
   acme = callPackage ../packages/acme {};
   menlo = callPackage ../packages/menlo {};
   upwork = callPackage ../packages/upwork {};
+  dnadd = callPackage ../packages/dnadd {};
 }

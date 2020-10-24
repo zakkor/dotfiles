@@ -51,6 +51,9 @@
   services.interception-tools.enable = true;
 
   environment.systemPackages = with pkgs; [
+    #DNA#
+    flameshot
+    htop
     stow
     wget
     zip
@@ -83,16 +86,18 @@
     upwork
     skype
     slack
-    kakoune
     xsel
     ranger
     gnumake
     pavucontrol
     firefox
-    elixir
     docker-compose
 		calibre
+    gcc
+    SDL2
+    dnadd
     
+    unstable.signal-desktop
     unstable.discord
     unstable.go
     unstable.vscode
