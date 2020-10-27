@@ -1,31 +1,16 @@
 { config, pkgs, ... }:
 {
   services.xserver = {
+    enable = true;
     displayManager = {
-			lightdm.enable = true;
-			defaultSession = "none+bspwm";
+			gdm.enable = true;
+			defaultSession = "gnome";
 		};
     desktopManager.xterm.enable = false;
-    windowManager.bspwm.enable = true;
+    desktopManager.gnome3.enable = true;
   };
 
-  # Compositor
-  services.picom = {
-    enable = true;
-    fade = true;
-    shadow = true;
-    fadeDelta = 4;
-  };
-
-  # Thumbnails
-  services.tumbler.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    (polybar.override { pulseSupport = true; })
-    rofi
-    dunst
-    feh
-  ];
+  programs.file-roller.enable = true;
 
   fonts.fonts = with pkgs; [
     # Polybar font

@@ -34,6 +34,8 @@
     extraGroups = [ "wheel" "networkmanager" "video" "docker" ];
   };
 
+  networking.networkmanager.enable = true;
+
   users.defaultUserShell = pkgs.bash;
 
   sound.enable = true;
@@ -52,7 +54,6 @@
 
   environment.systemPackages = with pkgs; [
     #DNA#
-    flameshot
     htop
     stow
     wget
@@ -69,22 +70,12 @@
     screenfetch
     arc-theme
     arc-icon-theme
-    lxappearance-gtk3
-    hubstaff
-    xarchiver
     mpv
-    protobuf
-    go-protobuf
-    shotwell
-    pantheon.elementary-screenshot-tool
-    pcmanfm
     acme
     nodejs-12_x
     yarn
     file
     ripgrep
-    upwork
-    skype
     slack
     xsel
     ranger
@@ -96,26 +87,14 @@
     gcc
     SDL2
     dnadd
+
+    gnome3.gnome-tweaks
     
     unstable.signal-desktop
     unstable.discord
     unstable.go
     unstable.vscode
   ];
-
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "ed" ];
-
-  systemd.coredump.extraConfig = ''
-    Compress=false
-  '';
-
-  networking.extraHosts = ''
-    127.0.0.1 example.com
-    127.0.0.1 robots.example.com
-    127.0.0.1 projects.example.com
-    127.0.0.1 arrival.example.com
-  '';
 
   programs.java.enable = true;
 

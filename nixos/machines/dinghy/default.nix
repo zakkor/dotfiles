@@ -11,7 +11,6 @@
   boot.loader.grub.device = "/dev/sda";
 
   networking.hostName = "dinghy";
-  networking.networkmanager.enable = true;
 
   # Touch pad and trackpoint
   services.xserver.libinput.enable = true;
