@@ -5,7 +5,7 @@ height			= 30
 
 modules-center		= date
 modules-left		= bspwm
-modules-right		= pulseaudio backlight battery
+modules-right		= sinkcycle pulseaudio backlight battery
 
 separator		= |
 module-margin		= 2
@@ -99,9 +99,14 @@ reverse-scroll		= false
 ; Default: false
 fuzzy-match		= true
 
+[module/sinkcycle]
+type = custom/script
+exec = ./.config/polybar/scripts/get-active-sink-name.sh
+click-left = ./.config/polybar/scripts/cycle-sink.sh
+interval = 1
+
 [module/pulseaudio]
 type			= internal/pulseaudio
-sink			= alsa_output.pci-0000_00_14.2.analog-stereo
 use-ui-max		= true
 interval		= 5
 format-volume		= Volume <label-volume>
