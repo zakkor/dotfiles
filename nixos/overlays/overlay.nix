@@ -15,13 +15,13 @@ in
       sha256 = "1rg37fd6g4h22z3r0by4sjqh4vnbz08rf96bnhwiyzkhj5b23hi7";
     };
   });
-  discord = super.discord.overrideAttrs (old: rec {
-    version = "0.0.10";
-    src = fetchurl {
-      url = "https://dl.discordapp.net/apps/linux/${version}/discord-${version}.tar.gz";
-      sha256 = "0kx92i8naqr3algmyy3wyzbh8146z7gigxwf1nbpg1gl16wlplaq";
-    };
-  });
+#  discord = super.discord.overrideAttrs (old: rec {
+#    version = "0.0.10";
+#    src = fetchurl {
+#      url = "https://dl.discordapp.net/apps/linux/${version}/discord-${version}.tar.gz";
+#      sha256 = "0kx92i8naqr3algmyy3wyzbh8146z7gigxwf1nbpg1gl16wlplaq";
+#    };
+#  });
   
   # Packages
   acme = callPackage ../packages/acme {};

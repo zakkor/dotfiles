@@ -8,7 +8,7 @@
 
   # TODO: split up into more sub-files
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.unstable.linuxPackages_latest;
 
   nixpkgs.config = { allowUnfree = true; };
 
@@ -81,17 +81,15 @@
     ranger
     gnumake
     pavucontrol
-    firefox
     docker-compose
-		calibre
     gcc
     SDL2
     dnadd
-
-    gnome3.gnome-tweaks
+    firefox
+    libreoffice
+    signal-desktop
+    discord
     
-    unstable.signal-desktop
-    unstable.discord
     unstable.go
     unstable.vscode
   ];
