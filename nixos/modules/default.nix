@@ -41,6 +41,8 @@
   sound.enable = true;
 
   hardware.pulseaudio.enable = true;
+  # Disable automatically suspending sinks/sources that become idle for too long
+  hardware.pulseaudio.configFile = ./config/pulseaudio/default.pa;
 
   services.xserver = {
     enable = true;
@@ -90,6 +92,7 @@
     signal-desktop
     discord
     
+    unstable.upwork
     unstable.go
     unstable.vscode
   ];
